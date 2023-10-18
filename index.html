@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TES RPL</title>
+    <base target="_top">
+  </head>
+  <body oncontextmenu="return false" onkeydown="return false;" onmousedown="return false;">
+    <div id="countdown"></div>
+    <div id="overlay">
+      <img src="assets/img/selesai.gif">
+      <!--<button id="reset-button"><a href="https://fkip.ut.ac.id" target="_blank">Kunjungi Website Kami</a></button>-->
+      <div id="pembuat">
+        <img src="assets/img/selendang.png" width="100%" height="150">
+      </div>
+    </div>
+
+    <!--Edit link soal online anda di bawah ini -->
+    <div class="background"> </div>
+    <iframe id="quiz-frame" src="https://sl.ut.ac.id/PresensiDanEvaluasi_BimtekKebhinekaanPPG" frameborder="0"></iframe>
+
+    <!-- <div style="position: fixed; left: 2px; top: 2px; z-index:9999999999;"> <a href="https://fkip.ut.ac.id"><img src="assets/img/icon-home.png"</a></div> -->
+
+    <div style="position: fixed; left: 0px; bottom: 0px; width: 100%; z-index:9999999999;"><img src="assets/img/selendang.png" width="100%" height="150"</a></div>
+
+    <script>    
+    // Seting waktu pengerjaan soal di bawah ini (contoh: 60 menit)
+    var countDownDate = new Date().getTime() + 5 * 5 * 1000;
+    var x=setInterval(function(){
+      var e=(new Date).getTime(),t=countDownDate-e,n=Math.floor(t/6e4),e=Math.floor(t%6e4/1e3);document.getElementById("countdown").innerHTML="Waktu Tersisa: "+n+" menit "+e+" detik",t<0&&(clearInterval(x),document.getElementById("quiz-frame").style.display="none",document.getElementById("overlay").style.display="flex",document.getElementById("reset-button").addEventListener("click",function() {
+        location.reload()
+        }
+        )
+      )
+    }
+    ,1e3);
+    </script>
+    <style>
+      body {
+        margin:0;
+        padding:0
+      }
+      iframe {
+        position:fixed;
+        top:0;
+        left:0;
+        width:100%;
+        height:97%;
+        border:none;
+        z-index:9999
+      } 
+      .background {
+        position:fixed;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        background-color:#034593;
+        z-index:9999
+      }
+      #countdown {
+        position:fixed;
+        top:0;
+        left:0;
+        width:100%;
+        height:25px;
+        background-color:#034593;
+        color:#fff;
+        font-size:20px;
+        text-align:center;
+        padding-top:0px;
+        z-index:99999
+      }
+      #overlay {
+        position:fixed;
+        top:0;
+        left:0;
+        height:100%;
+        width:100%;
+        background-color:#313131;
+        display:none;
+        align-items:center;
+        justify-content:center;
+        z-index:99999
+      }
+      #overlay-text {
+        font-size:25px;
+        color:#fff;
+        text-align:center;
+        margin-bottom:20px
+      }
+      #reset-button {
+        margin-top:10px;
+        padding:10px 20px;
+        background-color:#394ff7;
+        color:#fff;
+        font-size:24px;
+        border:none;
+        border-radius:10px;
+        cursor:pointer;
+        transition:all .3s ease;
+        text-transform:uppercase
+      }
+      #reset-button:hover {
+        background-color:#fff;
+        color:#394ff7
+      }
+      #pembuat {
+        position:fixed;
+        bottom:0;
+        left:0;
+        width:100%;
+        background-color: #313131;
+        color:#fff;
+        text-align:center;
+        padding:0px;z-index:99999999
+      }
+      .container {
+        width: 100%;
+        margin: auto;
+      }
+      @media screen and (max-width: 768px) {
+        #countdown {
+          font-size:18px
+        }
+        #overlay-text {
+          font-size:24px
+        }
+        #reset-button {
+          padding:5px 10px;
+          font-size:18px
+        }
+      } 
+    </style>
+  </body>
+</html>
